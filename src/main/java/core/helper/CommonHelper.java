@@ -131,6 +131,19 @@ public class CommonHelper {
 	    		for (int i = 0; i < Constant.API_GET_SLIDER.length; i++)
 	    	    	System.out.println(i + " --- " + Constant.API_GET_SLIDER[i]);
 	    		break;
+			case(24):
+				System.out.println("List unit test of API_EDIT_ACCOUNT");
+				for (int i = 0; i < Constant.API_EDIT_ACCOUNT.length; i++)
+				System.out.println(i + " --- " + Constant.API_EDIT_ACCOUNT[i]);
+			break;
+			case (25):
+				System.out.println("List unit test of API_GET_LIST_AUCTIONS");
+				for (int i = 0; i < Constant.API_GET_LIST_AUCTIONS.length; i++)
+				System.out.println(i + " --- " + Constant.API_GET_LIST_AUCTIONS[i]);
+			case (26):
+				System.out.println("List unit test of API_GET_LIST_AUCTIONS_BY_TYPE");
+				for (int i = 0; i < Constant.API_GET_AUCTIONS_BY_TYPE.length; i++)
+				System.out.println(i + " --- " + Constant.API_GET_AUCTIONS_BY_TYPE[i]);
 	    	default:
 	    		break;
 		}

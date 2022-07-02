@@ -50,7 +50,7 @@ public class LoginRestAssured extends BaseRestAssuredClass{
 	        LoginResponseModel resObj = mapper.readValue(res.asString(), LoginResponseModel.class);
 	        
 	        rut.setInput(jsonString);
-	        rut.setName(listUnitTest[0]);
+	      	rut.setName(listUnitTest[0]);
 	        rut.setOutput(res.asPrettyString());
 	        
 	        assert resObj.getCode() == 1000;
@@ -61,7 +61,6 @@ public class LoginRestAssured extends BaseRestAssuredClass{
 	        assertNotNull(resObj.getData().getAccessToken());
 	        
 	        Constant.ACCESS_TOKEN = "Bearer " + resObj.getData().getAccessToken();
-	        
 	        
 
 		} catch (JsonProcessingException e) {

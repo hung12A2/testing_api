@@ -7,13 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.AuctionsByStatusRestAssured;
+import com.AuctionsByTypeRestAssured;
 import com.AuctionsByUserRestAssured;
 import com.CreateAuctionRestAssured;
 import com.CreateCommentRestAssured;
 import com.CreateItemRestAssured;
 import com.DeleteCommentRestAssured;
 import com.DetailAuctionRestAssured;
+import com.EditAccountRestAssured;
 import com.EditAuctionRestAssured;
+import com.GetListAuctionsRestAssured;
 import com.GetListBidsRestAssured;
 import com.GetListBrandsRestAssured;
 import com.GetListCategoriesRestAssured;
@@ -42,7 +45,7 @@ public class CommonService{
 	private static int unitTestId = 0;
 	private static String[] listApi = Constant.LIST_API;
 
-	// 
+	// cần login thì run cái unittest000 của login trước 
 	public static void run() {
 		List<ResponseUnitTest> listRut = new ArrayList<ResponseUnitTest>();
 		switch (apiId) {
@@ -144,6 +147,14 @@ public class CommonService{
 			case (23):
 				listRut = GetSliderRestAssured.run(checkUnit, unitTestId);
 				break;
+			case (24):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = EditAccountRestAssured.run (checkUnit, unitTestId);
+			case (25):
+				listRut = GetListAuctionsRestAssured.run (checkUnit, unitTestId);
+			case (26):
+				listRut = AuctionsByTypeRestAssured.run(checkUnit, unitTestId);
 			default:
 				break;
 		}
