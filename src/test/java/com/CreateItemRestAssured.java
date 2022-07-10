@@ -17,7 +17,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static io.restassured.RestAssured.*;
-
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 import core.constant.Constant;
 import core.constant.Constant.Request.RequestApiCreateItem;
@@ -50,10 +51,9 @@ public class CreateItemRestAssured extends BaseRestAssuredClass{
 			
 			CreateItemResponseModel resObj = mapper.readValue(res.asString(), CreateItemResponseModel.class);
       
-	        assert resObj.getCode() == 1000;
-	        assert resObj.getMessage().equals("OK");
-	        //assertNotNull(resObj.getData());
-
+	        assertFalse("code != 1000", resObj.getCode() != 1000);
+			assertFalse("mess != OK", !resObj.getMessage().equals("OK"));
+	        assertNotNull(resObj.getData());
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -80,14 +80,12 @@ public class CreateItemRestAssured extends BaseRestAssuredClass{
 	                .post(RequestApiCreateItem.apiPath + "/" + RequestApiCreateItem.UnitTest001.auctionId);
 
 			rut.setInput(jsonString);
-			rut.setName(listUnitTest[0]);
+			rut.setName(listUnitTest[1]);
 	        rut.setOutput(res.asPrettyString());
 			
 			CreateItemResponseModel resObj = mapper.readValue(res.asString(), CreateItemResponseModel.class);
-      
-	        assert resObj.getCode() == 1001;
-	        assert resObj.getMessage().equals("OK");
-	        //assertNotNull(resObj.getData());
+			assertFalse("code != 1001", resObj.getCode() != 1001);
+			
 
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block

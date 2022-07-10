@@ -53,6 +53,36 @@ public class GetListAuctionsRestAssured extends BaseRestAssuredClass {
         return rut;
     }
 
+    public static ResponseUnitTest UnitTest001() {
+        Map <String, String> params = RequestApiGetListAuctions.UnitTest001.params;
+        ResponseUnitTest rut = new ResponseUnitTest();
+        ObjectMapper mapper = new ObjectMapper();
+        
+        try {
+            Response res = given()
+                            .contentType(ContentType.JSON)
+                            .params(params)
+                            .when()
+                            .get(RequestApiGetListAuctions.apiPath + "/" +
+                            RequestApiGetListAuctions.UnitTest000.typeId);
+
+            rut.setInput(params.toString());
+            rut.setName(listUnitTest[1]);
+            rut.setOutput(res.asPrettyString());
+
+            AuctionsResponseModel resObj = mapper.readValue(res.asString(), AuctionsResponseModel.class);
+
+            assertNotNull(resObj.getData());
+            assertFalse("code != 1000", resObj.getCode() != 1000);
+            assertFalse("message != OK ", !resObj.getMessage().equals("OK"));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return rut;
+    }
+
     public static ResponseUnitTest runUnitTest(int unitTestId) {
     	
     	ResponseUnitTest rut = new ResponseUnitTest();
@@ -60,6 +90,9 @@ public class GetListAuctionsRestAssured extends BaseRestAssuredClass {
     		case (0):
     			rut = UnitTest000();
     			break;
+            case (1):
+                rut = UnitTest001();
+                break;
     		default: 
     			break;
     	}

@@ -3,6 +3,7 @@ package com;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
@@ -52,6 +53,8 @@ public class AuctionsByStatusRestAssured extends BaseRestAssuredClass{
       
 	        assert resObj.getCode() == 1000;
 	        assert resObj.getMessage().equals("OK");
+			assertFalse( "Code != 1000", resObj.getCode() != 1000);
+            assertFalse( "Message != OK", !resObj.getMessage().equals("OK"));
 	        // not null auction
 	        assertNotNull(resObj.getData().getAuctions());
 	        // not null total
@@ -89,6 +92,8 @@ public class AuctionsByStatusRestAssured extends BaseRestAssuredClass{
       
 	        assert resObj.getCode() == 1000;
 	        assert resObj.getMessage().equals("OK");
+			assertFalse( "Code != 1000", resObj.getCode() != 1000);
+            assertFalse( "Message != OK", !resObj.getMessage().equals("OK"));
 	        // not null auction
 	        assertNotNull(resObj.getData().getAuctions());
 	        // not null total

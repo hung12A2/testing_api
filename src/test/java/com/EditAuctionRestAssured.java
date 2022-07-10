@@ -17,7 +17,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import static io.restassured.RestAssured.*;
-
+import static org.junit.Assert.assertFalse;
 
 import core.constant.Constant;
 import core.constant.Constant.Request.RequestApiEditAuction;
@@ -52,6 +52,8 @@ public class EditAuctionRestAssured extends BaseRestAssuredClass{
       
 	        assert resObj.getCode() == 1000;
 	        assert resObj.getMessage().equals("OK");
+			assertFalse("code != 1000", resObj.getCode() != 1000);
+			assertFalse("mess != OK", !resObj.getMessage().equals("OK"));
 	        //assertNotNull(resObj.getData());
 
 		} catch (JsonProcessingException e) {
@@ -86,6 +88,7 @@ public class EditAuctionRestAssured extends BaseRestAssuredClass{
 	        EditAuctionResponseModel resObj = mapper.readValue(res.asString(), EditAuctionResponseModel.class);
       
 	        assert resObj.getCode() == 1001;
+			assertFalse("code != 1001", resObj.getCode() != 1001);
 	        //assertNotNull(resObj.getData());
 
 		} catch (JsonProcessingException e) {
@@ -119,7 +122,8 @@ public class EditAuctionRestAssured extends BaseRestAssuredClass{
 			
 	        EditAuctionResponseModel resObj = mapper.readValue(res.asString(), EditAuctionResponseModel.class);
       
-	        assert resObj.getCode() == 1000;
+	        assert resObj.getCode() == 1001;
+			assertFalse("code != 1001", resObj.getCode() != 1001);
 	        //assertNotNull(resObj.getData());
 
 		} catch (JsonProcessingException e) {
@@ -153,7 +157,8 @@ public class EditAuctionRestAssured extends BaseRestAssuredClass{
 			
 	        EditAuctionResponseModel resObj = mapper.readValue(res.asString(), EditAuctionResponseModel.class);
       
-	        assert resObj.getCode() == 1005;
+	        assert resObj.getCode() == 1006;
+			assertFalse("code != 1006", resObj.getCode() != 1006);
 	        //assertNotNull(resObj.getData());
 
 		} catch (JsonProcessingException e) {
