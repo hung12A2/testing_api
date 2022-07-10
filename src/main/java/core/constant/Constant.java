@@ -111,7 +111,11 @@ public class Constant {
 	};
 	public static final String[] API_CREATE_ITEM = {
 			"API_CREATE_ITEM_UNIT_TEST_000",
-			"API_CREATE_ITEM_UNIT_TEST_001"
+			"API_CREATE_ITEM_UNIT_TEST_001",
+			"API_CREATE_ITEM_UNIT_TEST_002",
+			"API_CREATE_ITEM_UNIT_TEST_003",
+			"API_CREATE_ITEM_UNIT_TEST_004",
+			"API_CREATE_ITEM_UNIT_TEST_005"
 	};
 	public static final String[] API_GET_LIST_COMMENTS_OF_AUCTION = {
 			"API_GET_LIST_COMMENTS_UNIT_TEST_000",
@@ -455,36 +459,101 @@ public class Constant {
 				
 			}
 		}
-		// auctionId của tài khoản này là 57, 58
+		// 1211, 1212 la tkhoan duoc duyet, da them item roi
+		// 1211 duoc duyet roi
+		// 1219 1220 chua duoc duyet, chua them gi
+		// 1219 dung de test truong hop dung, 1220 dung test thop sai
 		public static class RequestApiCreateItem {
 			public static String apiPath = "/items/create";
 			// api chạy đúng
 			public static class UnitTest000 {				
-				public static int auctionId = 910; 
+				public static int auctionId = 1219; 
 				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
 				static {
 					List<String> sub = new ArrayList<String>();
-					sub.add("https://www.google.com/search?q=s%E1%BB%91+%C4%91%E1%BB%8F&sxsrf=ALiCzsbd59uJ7vTaS6xC04QINOkqQ-MfcQ:1657397692117&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjissLFz-z4AhV76jgGHQWAADIQ_AUoAXoECAMQAw&biw=1280&bih=609&dpr=1.5#imgrc=6ElYv1Z40Rw2kM");
-					requestBody.setName("Tên sản phẩm");
-					requestBody.setStartingPrice(1);
-					requestBody.setBrandId(1);
-					requestBody.setDescription("Mô tả");
-					requestBody.setSeries("Series");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					requestBody.setName("sadasd");
+					requestBody.setStartingPrice(10000);
+					requestBody.setBrandId(3);
+					requestBody.setDescription("đga");
+					requestBody.setSeries("xvcvvvff");
 					requestBody.setImages(sub);
 				}
 			}
-			// brand_id không có trong danh sách
-			// khong login
+			// truong hop co 5 cai anh
 			public static class UnitTest001 {				
-				public static int auctionId = 911; // auction này đã được thêm items, muốn test unit test này hãy tạo auction khác
+				public static int auctionId = 1220; 
+				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
+				static {
+					List<String> sub = new ArrayList<String>();
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					requestBody.setName("sadasd");
+					requestBody.setStartingPrice(10000);
+					requestBody.setBrandId(3);
+					requestBody.setDescription("đga");
+					requestBody.setSeries("xvcvvvff");
+					requestBody.setImages(sub);
+				}
+			}
+			// series null thi mac loi validate ?
+			public static class UnitTest002 {				
+				public static int auctionId = 1220; 
+				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
+				static {
+					requestBody.setName("sadasd");
+					requestBody.setStartingPrice(10000);
+					requestBody.setBrandId(3);
+					requestBody.setDescription("đga");
+					requestBody.setSeries(null);
+					requestBody.setImages(null);
+				}
+			}
+			// khong login
+			public static class UnitTest003 {				
+				public static int auctionId = 1220; 
+				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
+				static {
+					requestBody.setName("sadasd");
+					requestBody.setStartingPrice(10000);
+					requestBody.setBrandId(3);
+					requestBody.setDescription("đga");
+					requestBody.setSeries(null);
+					requestBody.setImages(null);
+				}
+			}
+			// brand_id không có trong danh sách
+			public static class UnitTest004 {				
+				public static int auctionId = 1220; 
 				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
 				static {
 					requestBody.setName("Tên sản phẩm");
 					requestBody.setStartingPrice(1);
-					requestBody.setBrandId(1);
+					requestBody.setBrandId(100);
 					requestBody.setDescription("Mô tả");
 				}
-			}	
+			}
+
+			// dung auction duoc duyet roi, hoac la auction cua nguoi khac ?
+			public static class UnitTest005 {				
+				public static int auctionId = 1211; 
+				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
+				static {
+					requestBody.setName("sadasd");
+					requestBody.setStartingPrice(10000);
+					requestBody.setBrandId(3);
+					requestBody.setDescription("đga");
+					requestBody.setSeries(null);
+					requestBody.setImages(null);
+				}
+			}
+
 		}
 		public static class RequestApiGetListComments {
 			public static String apiPath = "/comments";

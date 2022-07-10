@@ -84,6 +84,39 @@ public class CreateItemRestAssured extends BaseRestAssuredClass{
 	        rut.setOutput(res.asPrettyString());
 			
 			CreateItemResponseModel resObj = mapper.readValue(res.asString(), CreateItemResponseModel.class);
+			assertFalse("code != 1007", resObj.getCode() != 1007);
+			
+
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return rut;
+    }
+
+	@Test
+	public static ResponseUnitTest UnitTest002() {
+    	
+		CreateItemRequestModel requestBody = RequestApiCreateItem.UnitTest001.requestBody;
+    	ResponseUnitTest rut = new ResponseUnitTest();
+    	ObjectMapper mapper = new ObjectMapper();
+    	
+    	String jsonString;
+		try {
+			jsonString = mapper.writeValueAsString(requestBody);
+			Response res = given().header("Authorization", Constant.ACCESS_TOKEN)
+	                .contentType(ContentType.JSON)
+	                .body(jsonString)
+	                .when()
+	                .post(RequestApiCreateItem.apiPath + "/" + RequestApiCreateItem.UnitTest001.auctionId);
+
+			rut.setInput(jsonString);
+			rut.setName(listUnitTest[1]);
+	        rut.setOutput(res.asPrettyString());
+			
+			CreateItemResponseModel resObj = mapper.readValue(res.asString(), CreateItemResponseModel.class);
 			assertFalse("code != 1001", resObj.getCode() != 1001);
 			
 
@@ -95,6 +128,103 @@ public class CreateItemRestAssured extends BaseRestAssuredClass{
 		}
 		return rut;
     }
+
+	public static ResponseUnitTest UnitTest003() {
+    	
+		CreateItemRequestModel requestBody = RequestApiCreateItem.UnitTest001.requestBody;
+    	ResponseUnitTest rut = new ResponseUnitTest();
+    	ObjectMapper mapper = new ObjectMapper();
+    	
+    	String jsonString;
+		try {
+			jsonString = mapper.writeValueAsString(requestBody);
+			Response res = given()
+	                .contentType(ContentType.JSON)
+	                .body(jsonString)
+	                .when()
+	                .post(RequestApiCreateItem.apiPath + "/" + RequestApiCreateItem.UnitTest001.auctionId);
+
+			rut.setInput(jsonString);
+			rut.setName(listUnitTest[1]);
+	        rut.setOutput(res.asPrettyString());
+			
+			CreateItemResponseModel resObj = mapper.readValue(res.asString(), CreateItemResponseModel.class);
+			assertFalse("code != 1004", resObj.getCode() != 1004);
+			
+
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return rut;
+    }
+
+	@Test
+	public static ResponseUnitTest UnitTest004() {
+    	
+		CreateItemRequestModel requestBody = RequestApiCreateItem.UnitTest001.requestBody;
+    	ResponseUnitTest rut = new ResponseUnitTest();
+    	ObjectMapper mapper = new ObjectMapper();
+    	
+    	String jsonString;
+		try {
+			jsonString = mapper.writeValueAsString(requestBody);
+			Response res = given().header("Authorization", Constant.ACCESS_TOKEN)
+	                .contentType(ContentType.JSON)
+	                .body(jsonString)
+	                .when()
+	                .post(RequestApiCreateItem.apiPath + "/" + RequestApiCreateItem.UnitTest001.auctionId);
+
+			rut.setInput(jsonString);
+			rut.setName(listUnitTest[1]);
+	        rut.setOutput(res.asPrettyString());
+			
+			CreateItemResponseModel resObj = mapper.readValue(res.asString(), CreateItemResponseModel.class);
+			assertFalse("code != 1001", resObj.getCode() != 1001);
+			
+
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return rut;
+    }
+
+	@Test
+	public static ResponseUnitTest UnitTest005() {
+    	
+		CreateItemRequestModel requestBody = RequestApiCreateItem.UnitTest001.requestBody;
+    	ResponseUnitTest rut = new ResponseUnitTest();
+    	ObjectMapper mapper = new ObjectMapper();
+    	
+    	String jsonString;
+		try {
+			jsonString = mapper.writeValueAsString(requestBody);
+			Response res = given().header("Authorization", Constant.ACCESS_TOKEN)
+	                .contentType(ContentType.JSON)
+	                .body(jsonString)
+	                .when()
+	                .post(RequestApiCreateItem.apiPath + "/" + RequestApiCreateItem.UnitTest001.auctionId);
+
+			rut.setInput(jsonString);
+			rut.setName(listUnitTest[1]);
+	        rut.setOutput(res.asPrettyString());
+			
+			CreateItemResponseModel resObj = mapper.readValue(res.asString(), CreateItemResponseModel.class);
+			
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+		return rut;
+    }
+
 	
 	public static ResponseUnitTest runUnitTest(int unitTestId) {
     	
@@ -106,7 +236,18 @@ public class CreateItemRestAssured extends BaseRestAssuredClass{
     		case (1):
     			rut = UnitTest001();
     			break;
- 
+			case (2):
+				rut = UnitTest002();
+				break;
+			case (3):
+				rut = UnitTest003();
+				break;
+			case (4):
+				rut = UnitTest004();
+				break;
+			case (5):
+				rut = UnitTest005();
+				break;
     		default: 
     			break;
     	}
