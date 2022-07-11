@@ -59,12 +59,12 @@ public class GetListAuctionsRestAssured extends BaseRestAssuredClass {
         ObjectMapper mapper = new ObjectMapper();
         
         try {
-            Response res = given()
+            Response res = given().header("Authorization", Constant.ACCESS_TOKEN)
                             .contentType(ContentType.JSON)
                             .params(params)
                             .when()
                             .get(RequestApiGetListAuctions.apiPath + "/" +
-                            RequestApiGetListAuctions.UnitTest000.typeId);
+                            RequestApiGetListAuctions.UnitTest001.typeId);
 
             rut.setInput(params.toString());
             rut.setName(listUnitTest[1]);

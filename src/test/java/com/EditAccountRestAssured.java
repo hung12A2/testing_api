@@ -32,7 +32,7 @@ public class EditAccountRestAssured extends BaseRestAssuredClass{
         String jsonString;
         try {
             jsonString = mapper.writeValueAsString(requestBody);
-            Response res = given()
+            Response res = given().header("Authorization", Constant.ACCESS_TOKEN)
                         .contentType(ContentType.JSON)
                         .when()
                         .body(jsonString)
@@ -73,11 +73,10 @@ public class EditAccountRestAssured extends BaseRestAssuredClass{
             editAccResponeModel resObj = mapper.readValue(res.asString(), editAccResponeModel.class);
 
             rut.setInput(jsonString);
-            rut.setName(listUnitTest[0]);
+            rut.setName(listUnitTest[1]);
             rut.setOutput(res.asPrettyString()); 
 
-            assertFalse("code != 1001", resObj.getCode() != 1001);
-            assertFalse("message = OK", resObj.getMessage().equals("OK"));
+            assertFalse("code != 1004", resObj.getCode() != 1004);
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -88,7 +87,7 @@ public class EditAccountRestAssured extends BaseRestAssuredClass{
 
     @Test
     public static ResponseUnitTest UnitTest002(){
-        editAccRequestModel requestBody = RequestApiEditAccount.UnitTest000.requestBody;
+        editAccRequestModel requestBody = RequestApiEditAccount.UnitTest002.requestBody;
         ResponseUnitTest rut = new ResponseUnitTest();
         ObjectMapper mapper = new ObjectMapper();
 
@@ -104,11 +103,10 @@ public class EditAccountRestAssured extends BaseRestAssuredClass{
             editAccResponeModel resObj = mapper.readValue(res.asString(), editAccResponeModel.class);
 
             rut.setInput(jsonString);
-            rut.setName(listUnitTest[0]);
+            rut.setName(listUnitTest[2]);
             rut.setOutput(res.asPrettyString()); 
 
             assertFalse("code != 1001", resObj.getCode() != 1001);
-            assertFalse("message = OK", resObj.getMessage().equals("OK"));
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,7 +117,7 @@ public class EditAccountRestAssured extends BaseRestAssuredClass{
 
     @Test
     public static ResponseUnitTest UnitTest003(){
-        editAccRequestModel requestBody = RequestApiEditAccount.UnitTest000.requestBody;
+        editAccRequestModel requestBody = RequestApiEditAccount.UnitTest003.requestBody;
         ResponseUnitTest rut = new ResponseUnitTest();
         ObjectMapper mapper = new ObjectMapper();
 
@@ -135,11 +133,10 @@ public class EditAccountRestAssured extends BaseRestAssuredClass{
             editAccResponeModel resObj = mapper.readValue(res.asString(), editAccResponeModel.class);
 
             rut.setInput(jsonString);
-            rut.setName(listUnitTest[0]);
+            rut.setName(listUnitTest[3]);
             rut.setOutput(res.asPrettyString()); 
 
             assertFalse("code != 1001", resObj.getCode() != 1001);
-            assertFalse("message = OK", resObj.getMessage().equals("OK"));
             
         } catch (Exception e) {
             e.printStackTrace();

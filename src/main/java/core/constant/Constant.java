@@ -167,7 +167,7 @@ public class Constant {
 	};
 	public static final String[] API_GET_LIST_AUCTIONS = {
 			"API_GET_LIST_AUCTION_UNIT_TEST_000",
-			"API_GET_LIST_AUCTION_UNIT_TEST_001"
+			"API_GET_LIST_AUCTION_UNIT_TEST_001",
 	};
 	public static final String[] API_GET_AUCTIONS_BY_TYPE = {
 			"API_GET_AUCTIONS_BY_TYPE_UNIT_TEST_000"
@@ -186,7 +186,7 @@ public class Constant {
 			public static String apiPath = "/login"; 
 			public static class UnitTest000 {
 				public static LoginRequestModel requestBody 
-				= new LoginRequestModel( "asd@gmail.com", "123456");
+				= new LoginRequestModel( "qwer@gmail.com", "123456");
 			}
 			public static class UnitTest001 {
 				public static LoginRequestModel requestBody 
@@ -375,7 +375,7 @@ public class Constant {
 			public static String apiPath = "/auctions/edit";
 			
 			public static class UnitTest000 {				
-				public static int auctionId = 911;
+				public static int auctionId = 1322;
 				public static EditAuctionRequestModel requestBody = new EditAuctionRequestModel();
 				static {
 					LocalDateTime today = LocalDateTime.now();
@@ -393,7 +393,7 @@ public class Constant {
 			}
 			// thoi gian sai
 			public static class UnitTest001 {
-				public static int auctionId = 911;
+				public static int auctionId = 1322;
 				public static EditAuctionRequestModel requestBody = new EditAuctionRequestModel();
 				static {
 					LocalDateTime today = LocalDateTime.now();
@@ -409,7 +409,7 @@ public class Constant {
 			}
 			// categoryId khong ton tai
 			public static class UnitTest002 {	
-				public static int auctionId = 911;
+				public static int auctionId = 1322;
 				public static EditAuctionRequestModel requestBody = new EditAuctionRequestModel();
 				static {
 					LocalDateTime today = LocalDateTime.now();
@@ -474,25 +474,25 @@ public class Constant {
 			public static String apiPath = "/items/create";
 			// api chạy đúng
 			public static class UnitTest000 {				
-				public static int auctionId = 1219; 
+				public static int auctionId = 1379; 
 				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
 				static {
-					List<String> sub = new ArrayList<String>();
+					List<String> sub = new ArrayList<String>();	
 					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
 					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
 					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
 					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
-					requestBody.setName("sadasd");
-					requestBody.setStartingPrice(10000);
-					requestBody.setBrandId(3);
-					requestBody.setDescription("đga");
-					requestBody.setSeries("xvcvvvff");
+					requestBody.setName("sadc@d");
+					requestBody.setStartingPrice(1000);
+					requestBody.setBrandId(4);
+					requestBody.setDescription("đgvva");
+					requestBody.setSeries("@bvcvcf");
 					requestBody.setImages(sub);
 				}
 			}
 			// truong hop co 5 cai anh
 			public static class UnitTest001 {				
-				public static int auctionId = 1220; 
+				public static int auctionId = 1379; 
 				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
 				static {
 					List<String> sub = new ArrayList<String>();
@@ -511,7 +511,7 @@ public class Constant {
 			}
 			// series null thi mac loi validate ?
 			public static class UnitTest002 {				
-				public static int auctionId = 1220; 
+				public static int auctionId = 1380; 
 				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
 				static {
 					requestBody.setName("sadasd");
@@ -524,7 +524,7 @@ public class Constant {
 			}
 			// khong login
 			public static class UnitTest003 {				
-				public static int auctionId = 1220; 
+				public static int auctionId = 1380; 
 				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
 				static {
 					requestBody.setName("sadasd");
@@ -537,7 +537,7 @@ public class Constant {
 			}
 			// brand_id không có trong danh sách
 			public static class UnitTest004 {				
-				public static int auctionId = 1220; 
+				public static int auctionId = 1380; 
 				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
 				static {
 					requestBody.setName("Tên sản phẩm");
@@ -565,7 +565,7 @@ public class Constant {
 		public static class RequestApiGetListComments {
 			public static String apiPath = "/comments";
 			public static class UnitTest000 {				
-				public static int auctionId = 1;
+				public static int auctionId = 3;
 			}
 			public static class UnitTest001 {
 				public static int auctionId = 2;
@@ -577,7 +577,7 @@ public class Constant {
 			public static String apiPath = "/comments/create";
 			// trường hợp chay dung
 			public static class UnitTest000 {				
-				public static int auctionId = 1;
+				public static int auctionId = 3;
 				public static CreateCommentRequestModel requestBody = new CreateCommentRequestModel();
 				static {
 					requestBody.setContent("Bình luận");
@@ -594,13 +594,13 @@ public class Constant {
 					requestBody.setCommentLastId(1);
 				}
 			}	
-			// trường hợp không nhập comment_last_id
+			// trường hợp commentlastid > 10
 			public static class UnitTest002 {				
-				public static int auctionId = 1; 
+				public static int auctionId = 3; 
 				public static CreateCommentRequestModel requestBody = new CreateCommentRequestModel();
 				static {
 					requestBody.setContent("Bình luận");
-					//requestBody.setCommentLastId(1);
+					requestBody.setCommentLastId(11);
 				}
 			}	
 			// truong hop khong login de comment
@@ -723,33 +723,29 @@ public class Constant {
 		}
 
 		// define edit account
-		// api có vấn đề 
+	
 		public static class RequestApiEditAccount {
 			public static String apiPath = "/edit";
 			public static class UnitTest000 {
-				// mỗi lần check cái này thì tạo account mới :((
 				public static editAccRequestModel requestBody =
-				new editAccRequestModel("hungyasuoaaa@gmail.com","123456789","123456789","phutho"
-				, "hưng", "098796845" ,null);
+				new editAccRequestModel("asd@gmail.com","phutho", "hưng", "098796845" ,null);
 				// trường hợp này có login
 			}
 			public static class UnitTest001 {
 				public static editAccRequestModel requestBody =
-				new editAccRequestModel("hungyasuo@gmail.com","123456","123456789","phutho"
-				, "hưng", "098796845" ,null);
+				new editAccRequestModel("asd@gmail.com","phutho", "hưng", "098796845" ,null);
 				// trường hợp này không login
 			}
 			public static class UnitTest002 {
-				// không điền pass
+				// sdt sai dinh dang
 				public static editAccRequestModel requestBody =
-				new editAccRequestModel("hungkhazix@gmail.com","","123456789","phutho"
-				, "hưng", "098796845" ,null);
+				new editAccRequestModel("asd@gmail.com","phutho"
+				, "hưng", "0987968fss45" ,null);
 			}
 			public static class UnitTest003 {
 				// email không tồn tại
 				public static editAccRequestModel requestBody =
-				new editAccRequestModel("hungkhazixxx@gmail.com","123456","123456789","phutho"
-				, "hưng", "098796845" ,null);
+				new editAccRequestModel("hungkhazixxx@gmail.com","phutho", "hưng", "098796845" ,null);
 			}
 		}
 
@@ -771,8 +767,10 @@ public class Constant {
 				static {
 					params.put ("index","1");
 					params.put ("count", "1");
+					params.put("user_id", "3");
 				}
 			}
+
 		}
 		// get list auctions by type
 		public static class RequestApiGetAuctionsByType {

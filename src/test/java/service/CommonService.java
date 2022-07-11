@@ -152,14 +152,20 @@ public class CommonService{
 				LoginRestAssured.init();
 				LoginRestAssured.runUnitTest(0);
 				listRut = EditAccountRestAssured.run (checkUnit, unitTestId);
+				break;
 			case (25):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
 				listRut = GetListAuctionsRestAssured.run (checkUnit, unitTestId);
+				break;
 			case (26):
 				listRut = AuctionsByTypeRestAssured.run(checkUnit, unitTestId);
+				break;
 			case (27):
 				LoginRestAssured.init();
 				LoginRestAssured.runUnitTest(0);
 				listRut = EditItemRestAssured.run (checkUnit, unitTestId);
+				break;
 			default:
 				break;
 		}

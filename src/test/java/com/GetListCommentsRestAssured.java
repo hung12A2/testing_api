@@ -74,7 +74,7 @@ public class GetListCommentsRestAssured extends BaseRestAssuredClass{
 			Response res = given()
 	                .contentType(ContentType.JSON)
 	                .when()
-	                .get(RequestApiGetListComments.apiPath + "/" + RequestApiGetListComments.UnitTest000.auctionId);
+	                .get(RequestApiGetListComments.apiPath + "/" + RequestApiGetListComments.UnitTest001.auctionId);
 
 			
 			rut.setName(listUnitTest[1]);
