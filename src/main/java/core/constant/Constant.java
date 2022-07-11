@@ -53,7 +53,8 @@ public class Constant {
 			 "API_GET_SLIDER",
 			 "API_EDIT_ACCOUNT",
 			 "API_GET_LIST_AUCTIONS",
-			 "API_GET_AUCTIONS_BY_TYPE"
+			 "API_GET_AUCTIONS_BY_TYPE",
+			 "API_EDIT_ITEM"
 	};
 	 
 	public static final String[] API_LOGIN = {
@@ -170,6 +171,12 @@ public class Constant {
 	};
 	public static final String[] API_GET_AUCTIONS_BY_TYPE = {
 			"API_GET_AUCTIONS_BY_TYPE_UNIT_TEST_000"
+	};
+
+	public static final String[] API_EDIT_ITEM = {
+			"API_EDIT_ITEM_UNIT_TEST_000",
+			"API_EDIT_ITEM_UNIT_TEST_001",
+			"API_EDIT_ITEM_UNIT_TEST_002"
 	};
 	
 	public static class Request {
@@ -777,6 +784,65 @@ public class Constant {
 				static {
 					params.put("index", "1");
 					params.put ("count","4");
+				}
+			}
+		}
+		
+		// dung chung req model voi create item
+		// dung chung res model voi create item
+		public static class RequestApiEditItem {
+			public static String apiPath = "/items/edit";
+			public static class UnitTest000 {
+				public static int itemId = 298;
+				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
+				static {
+					List<String> sub = new ArrayList<String>();
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					requestBody.setName("sadasd");
+					requestBody.setStartingPrice(90000);
+					requestBody.setBrandId(2);
+					requestBody.setDescription("nodessc");
+					requestBody.setSeries("xvcvff");
+					requestBody.setImages(sub);
+				}
+			}
+			// 5 ảnh
+			public static class UnitTest001 {
+				public static int itemId = 298;
+				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
+				static {
+					List<String> sub = new ArrayList<String>();
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					requestBody.setName("sadasd");
+					requestBody.setStartingPrice(90000);
+					requestBody.setBrandId(2);
+					requestBody.setDescription("nodessc");
+					requestBody.setSeries("xvcvff");
+					requestBody.setImages(sub);
+				}
+			}
+
+			public static class UnitTest002 {
+				public static int itemId = 298;
+				public static CreateItemRequestModel requestBody = new CreateItemRequestModel();
+				static {
+					List<String> sub = new ArrayList<String>();
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					sub.add("https://photo-cms-tpo.zadn.vn/w890/Uploaded/2021/bwivbwiv/2016_08_14/busan_uyxj.jpg");
+					requestBody.setName("sadasd");
+					requestBody.setStartingPrice(90000);
+					requestBody.setBrandId(2);
+					requestBody.setDescription("nodessc");
+					requestBody.setSeries("xvcvff");
+					requestBody.setImages(sub);
 				}
 			}
 		}

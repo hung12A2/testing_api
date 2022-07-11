@@ -16,6 +16,7 @@ import com.DeleteCommentRestAssured;
 import com.DetailAuctionRestAssured;
 import com.EditAccountRestAssured;
 import com.EditAuctionRestAssured;
+import com.EditItemRestAssured;
 import com.GetListAuctionsRestAssured;
 import com.GetListBidsRestAssured;
 import com.GetListBrandsRestAssured;
@@ -155,6 +156,10 @@ public class CommonService{
 				listRut = GetListAuctionsRestAssured.run (checkUnit, unitTestId);
 			case (26):
 				listRut = AuctionsByTypeRestAssured.run(checkUnit, unitTestId);
+			case (27):
+				LoginRestAssured.init();
+				LoginRestAssured.runUnitTest(0);
+				listRut = EditItemRestAssured.run (checkUnit, unitTestId);
 			default:
 				break;
 		}
